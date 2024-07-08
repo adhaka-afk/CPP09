@@ -6,7 +6,7 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:11 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/08 15:03:18 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:17:43 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
 	if(argc != 2)
 	{
-		std::cerr << "Usage: ./bitcoin [filename]" << std::endl;
+		std::cerr << "Usage: ./btc [filename]" << std::endl;
 		return 1;
 	}
 	try
