@@ -6,7 +6,7 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:11 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/08 10:45:27 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:03:18 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 
 		std::string line;
 		std::getline(inputFile, line);
-		if (line.empty())
+		if (line.empty() && inputFile.eof())
 		{
 			std::cerr << "Error: Empty file" << std::endl;
 			return 1;

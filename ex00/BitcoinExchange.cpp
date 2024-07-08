@@ -6,7 +6,7 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:05 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/08 11:30:50 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:05:00 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void BitcoinExchange::loadBitcoinPrice(const std::string &filename)
 	file.close();
 }
 
-// Get Exchange Rate, It will return the exchange rate of the given date 
+// Get Exchange Rate, It will return the exchange rate of the given date
 double BitcoinExchange::getExchangeRate(const std::string &date) const
 {
 	std::map<std::string, double>::const_iterator it = _bitcoinPrices.lower_bound(date);
@@ -128,11 +128,11 @@ bool BitcoinExchange::isDateValid(const std::string &date)
 	{
 		return false;
 	}
-	for (int i = 0; i < 10; ++i)
+	for (int a = 0; a < 10; ++a)
 	{
-		if (i == 4 || i == 7)
+		if (a == 4 || a == 7)
 			continue;
-		if (!std::isdigit(date[i]))
+		if (!std::isdigit(date[a]))
 			return false;
 	}
 	int year = std::atoi(date.substr(0, 4).c_str());

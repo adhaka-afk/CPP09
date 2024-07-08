@@ -6,7 +6,7 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:44 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/08 14:11:44 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 15:11:54 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(const PmergeMe& src)
 {
-	*this = src;
+	(void)src;
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &src)
