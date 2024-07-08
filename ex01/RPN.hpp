@@ -6,7 +6,7 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:29 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/08 00:46:52 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 12:22:07 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class RPN
 		~RPN();
 		RPN &operator=(const RPN &src);
 		int calculate(const std::string &expr);
-
 };
 
 #endif
