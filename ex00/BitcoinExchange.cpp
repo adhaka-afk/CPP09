@@ -6,11 +6,13 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:05 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/08 10:45:02 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 11:30:50 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+// Constructor, Destructor, Copy Constructor, Assignment Operator
 
 BitcoinExchange::BitcoinExchange() {}
 
@@ -32,6 +34,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src)
 	return *this;
 }
 
+// Load Bitcoin Price, It will load the bitcoin price from the file
 void BitcoinExchange::loadBitcoinPrice(const std::string &filename)
 {
 	std::ifstream file(filename.c_str());
@@ -59,6 +62,7 @@ void BitcoinExchange::loadBitcoinPrice(const std::string &filename)
 	file.close();
 }
 
+// Get Exchange Rate, It will return the exchange rate of the given date 
 double BitcoinExchange::getExchangeRate(const std::string &date) const
 {
 	std::map<std::string, double>::const_iterator it = _bitcoinPrices.lower_bound(date);
@@ -77,6 +81,7 @@ double BitcoinExchange::getExchangeRate(const std::string &date) const
 	return it->second;
 }
 
+// Process Input, It will process the input and print the output.
 void BitcoinExchange::processInput(const std::string &line)
 {
 	std::istringstream iss(line);
@@ -116,7 +121,7 @@ void BitcoinExchange::processInput(const std::string &line)
 		std::cerr << e.what() << std::endl;
 	}
 }
-
+// Is Date Valid, It will check if the date is valid or not
 bool BitcoinExchange::isDateValid(const std::string &date)
 {
 	if (date.length() != 10 || date[4] != '-' || date[7] != '-')
@@ -149,6 +154,7 @@ bool BitcoinExchange::isDateValid(const std::string &date)
 	return true;
 }
 
+// Is Value Valid, It will check if the value is valid or not
 bool BitcoinExchange::isValueValid(const std::string &value)
 {
 	char *end;
@@ -156,6 +162,7 @@ bool BitcoinExchange::isValueValid(const std::string &value)
 	return (*end == '\0' && val >= 0 && val <= 1000);
 }
 
+// Trim, It will remove the leading and trailing spaces from the string
 void BitcoinExchange::trim(std::string &str)
 {
 	size_t first = str.find_first_not_of(' ');

@@ -6,12 +6,13 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:26 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/08 00:49:17 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 11:50:48 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
+//Constructor, Destructor, Copy Constructor, Assignment Operator
 RPN::RPN()
 {
 }
@@ -33,11 +34,13 @@ RPN &RPN::operator=(const RPN &src)
 	return *this;
 }
 
+//isOperator, it will check if the string is an operator
 bool RPN::isOperator(const std::string &str) const
 {
 	return (str == "+" || str == "-" || str == "*" || str == "/");
 }
 
+//isValid, it will check if the string is a valid number
 bool RPN::isValid(const std::string &str) const
 {
 	if (str.empty())
@@ -51,6 +54,7 @@ bool RPN::isValid(const std::string &str) const
 	return (num >= std::numeric_limits<int>::min() && num <= std::numeric_limits<int>::max());
 }
 
+//operate, it will perform the operation on the operands
 int	RPN::operate(int a, int b, const std::string &op) const
 {
 	if (op == "+")
@@ -68,6 +72,7 @@ int	RPN::operate(int a, int b, const std::string &op) const
 	throw std::runtime_error("ERROR : Invalid operator");
 }
 
+//calculate, it will calculate the expression
 int RPN::calculate(const std::string &expr)
 {
 	std::istringstream iss(expr);
