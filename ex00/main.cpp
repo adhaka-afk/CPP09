@@ -6,7 +6,7 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:11 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/07 04:17:04 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 10:45:27 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,31 @@ int main(int argc, char **argv)
 	}
 	try
 	{
-		BitcoinExchange exchange(argv[1]);
+		BitcoinExchange btcExchange;
+		btcExchange.loadBitcoinPrice("data.csv");
+
+		std::ifstream inputFile(argv[1]);
+		if (!inputFile.is_open())
+		{
+			std::cerr << "Error: Could not open file or it does not exist" << std::endl;
+			return 1;
+		}
+
+		std::string line;
+		std::getline(inputFile, line);
+		if (line.empty())
+		{
+			std::cerr << "Error: Empty file" << std::endl;
+			return 1;
+		}
+		while (std::getline(inputFile, line))
+		{
+			btcExchange.processInput(line);
+		}
+
+		inputFile.close();
 	}
-	catch(const std::exception &e)
+	catch (const std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 		return 1;

@@ -6,7 +6,7 @@
 /*   By: adhaka <adhaka@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 08:54:08 by adhaka            #+#    #+#             */
-/*   Updated: 2024/07/07 05:00:01 by adhaka           ###   ########.fr       */
+/*   Updated: 2024/07/08 10:42:38 by adhaka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,20 @@
 class BitcoinExchange
 {
 	public:
-		BitcoinExchange(const std::string &filename);
+		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange &src);
 		BitcoinExchange &operator=(const BitcoinExchange &src);
 		~BitcoinExchange();
 
 		void loadBitcoinPrice(const std::string &filename);
-		double displayBitcoinPrice(const std::string &date) const;
+		double getExchangeRate(const std::string &date) const;
+		void processInput(const std::string &line);
 
 	private:
 		std::map<std::string, double> _bitcoinPrices;
-		std::string findCDate(const std::string &date) const;
-		bool isDateValid(const std::string &date) const;
-		bool isValueValid(const std::string &value) const;
+		bool isDateValid(const std::string &date);
+		bool isValueValid(const std::string &value);
+		static void trim(std::string &str);
 };
 
 #endif
